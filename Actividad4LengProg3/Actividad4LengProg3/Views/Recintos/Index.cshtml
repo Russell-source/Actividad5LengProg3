@@ -1,0 +1,30 @@
+﻿@model List<Actividad4LengProg3.Models.RecintoViewModel>
+
+<h2>Lista de Recintos</h2>
+
+<a asp-action="Crear" class="btn btn-primary mb-3">Agregar Recinto</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Dirección</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var r in Model)
+        {
+            <tr>
+                <td>@r.Codigo</td>
+                <td>@r.Nombre</td>
+                <td>@r.Direccion</td>
+                <td>
+                    <a asp-action="Editar" asp-route-codigo="@r.Codigo">Editar</a> |
+                    <a asp-action="Eliminar" asp-route-codigo="@r.Codigo">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

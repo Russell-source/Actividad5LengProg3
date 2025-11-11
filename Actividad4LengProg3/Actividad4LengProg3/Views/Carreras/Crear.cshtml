@@ -1,0 +1,31 @@
+﻿@model Actividad4LengProg3.Models.CarreraViewModel
+
+<h2>Agregar Carrera</h2>
+
+<form asp-action="Crear" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <label asp-for="Codigo"></label>
+    <input asp-for="Codigo" class="form-control" />
+    <span asp-validation-for="Codigo" class="text-danger"></span>
+
+    <label asp-for="Nombre"></label>
+    <input asp-for="Nombre" class="form-control" />
+    <span asp-validation-for="Nombre" class="text-danger"></span>
+
+    <label asp-for="CantidadCreditos"></label>
+    <input asp-for="CantidadCreditos" class="form-control" />
+    <span asp-validation-for="CantidadCreditos" class="text-danger"></span>
+
+    <label asp-for="CantidadMaterias"></label>
+    <input asp-for="CantidadMaterias" class="form-control" />
+    <span asp-validation-for="CantidadMaterias" class="text-danger"></span>
+
+    <button type="submit" class="btn btn-success mt-3">Guardar</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

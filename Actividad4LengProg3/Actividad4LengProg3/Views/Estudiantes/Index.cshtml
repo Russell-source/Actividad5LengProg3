@@ -1,0 +1,61 @@
+﻿@model Actividad4LengProg3.Models.EstudianteViewModel
+
+@{
+    ViewBag.Title = "Registrar Estudiante";
+}
+
+<h2>Registrar Estudiante</h2>
+
+@using (Html.BeginForm("Registrar", "Estudiantes", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.NombreCompleto)
+        @Html.TextBoxFor(m => m.NombreCompleto, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.NombreCompleto)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Matricula)
+        @Html.TextBoxFor(m => m.Matricula, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Matricula)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Celular)
+        @Html.TextBoxFor(m => m.Celular, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Celular)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.CorreoInstitucional)
+        @Html.TextBoxFor(m => m.CorreoInstitucional, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CorreoInstitucional)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Carrera)
+        @Html.DropDownListFor(m => m.Carrera, (SelectList)ViewBag.Carreras, "-- Selecciona Carrera --", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Carrera)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Recinto)
+        @Html.DropDownListFor(m => m.Recinto, (SelectList)ViewBag.Recintos, "-- Selecciona Recinto --", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Recinto)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.EstaBecado)
+        @Html.CheckBoxFor(m => m.EstaBecado)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.PorcentajeBeca)
+        @Html.TextBoxFor(m => m.PorcentajeBeca, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.PorcentajeBeca)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+}

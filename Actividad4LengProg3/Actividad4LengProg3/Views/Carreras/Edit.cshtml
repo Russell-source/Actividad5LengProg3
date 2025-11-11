@@ -1,0 +1,18 @@
+﻿@model Actividad4LengProg3.Models.CarreraViewModel
+
+<h2>@ViewData["Title"] Carrera</h2>
+
+<"form asp-action="@ViewData["Action"]" method="post">
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<label asp-for="Codigo"></label>
+<input asp-for="Codigo" class="form-control" />
+<span asp-validation-for="Codigo" class="text-danger"></span>
+
+<label asp-for="Nombre"></label>
+<input asp-for="Nombre" class="form-control" />
+<span asp-validation-for="Nombre" class="text-danger"></span>
+
+<label asp-for="CantidadCreditos"></label>
+<input asp-for="CantidadCreditos" class="form-control" />
+<span asp

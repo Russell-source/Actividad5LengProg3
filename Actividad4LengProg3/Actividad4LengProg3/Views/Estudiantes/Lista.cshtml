@@ -1,0 +1,28 @@
+﻿@model List<Actividad4LengProg3.Models.EstudianteViewModel>
+
+<h2>Estudiantes Registrados</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Matrícula</th>
+            <th>Carrera</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var est in Model)
+        {
+            <tr>
+                <td>@est.NombreCompleto</td>
+                <td>@est.Matricula</td>
+                <td>@est.Carrera</td>
+                <td>
+                    <a asp-action="Editar" asp-route-matricula="@est.Matricula">Editar</a> |
+                    <a asp-action="Eliminar" asp-route-matricula="@est.Matricula">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

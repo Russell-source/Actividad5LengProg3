@@ -1,0 +1,32 @@
+﻿@model List<Actividad4LengProg3.Models.CarreraViewModel>
+
+<h2>Lista de Carreras</h2>
+
+<a asp-action="Crear" class="btn btn-primary mb-3">Agregar Carrera</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Créditos</th>
+            <th>Materias</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@c.Codigo</td>
+                <td>@c.Nombre</td>
+                <td>@c.CantidadCreditos</td>
+                <td>@c.CantidadMaterias</td>
+                <td>
+                    <a asp-action="Editar" asp-route-codigo="@c.Codigo">Editar</a> |
+                    <a asp-action="Eliminar" asp-route-codigo="@c.Codigo">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

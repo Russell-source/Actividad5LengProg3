@@ -1,61 +1,72 @@
 ﻿@model Actividad4LengProg3.Models.EstudianteViewModel
+<h2>Registro de Estudiantes</h2>
 
-@{
-    ViewBag.Title = "Registrar Estudiante";
-}
+<form asp-action="Registrar" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-<h2>Registrar Estudiante</h2>
+    <label asp-for="NombreCompleto"></label>
+    <input asp-for="NombreCompleto" class="form-control" />
+    <span asp-validation-for="NombreCompleto" class="text-danger"></span>
 
-@using (Html.BeginForm("Registrar", "Estudiantes", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
+    <label asp-for="Matricula"></label>
+    <input asp-for="Matricula" class="form-control" />
+    <span asp-validation-for="Matricula" class="text-danger"></span>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.NombreCompleto)
-        @Html.TextBoxFor(m => m.NombreCompleto, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.NombreCompleto)
-    </div>
+    <label asp-for="Carrera"></label>
+    <input asp-for="Carrera" class="form-control" />
+    <span asp-validation-for="Carrera" class="text-danger"></span>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.Matricula)
-        @Html.TextBoxFor(m => m.Matricula, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Matricula)
-    </div>
+    <label asp-for="Recinto"></label>
+    <input asp-for="Recinto" class="form-control" />
+    <span asp-validation-for="Recinto" class="text-danger"></span>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.Celular)
-        @Html.TextBoxFor(m => m.Celular, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Celular)
-    </div>
+    <label asp-for="CorreoInstitucional"></label>
+    <input asp-for="CorreoInstitucional" class="form-control" />
+    <span asp-validation-for="CorreoInstitucional" class="text-danger"></span>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.CorreoInstitucional)
-        @Html.TextBoxFor(m => m.CorreoInstitucional, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.CorreoInstitucional)
-    </div>
+    <label asp-for="Celular"></label>
+    <input asp-for="Celular" class="form-control" />
+    <span asp-validation-for="Celular" class="text-danger"></span>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.Carrera)
-        @Html.DropDownListFor(m => m.Carrera, (SelectList)ViewBag.Carreras, "-- Selecciona Carrera --", new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Carrera)
-    </div>
+    <label asp-for="Telefono"></label>
+    <input asp-for="Telefono" class="form-control" />
+    <span asp-validation-for="Telefono" class="text-danger"></span>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.Recinto)
-        @Html.DropDownListFor(m => m.Recinto, (SelectList)ViewBag.Recintos, "-- Selecciona Recinto --", new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Recinto)
-    </div>
+    <label asp-for="Direccion"></label>
+    <input asp-for="Direccion" class="form-control" />
+    <span asp-validation-for="Direccion" class="text-danger"></span>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.EstaBecado)
-        @Html.CheckBoxFor(m => m.EstaBecado)
-    </div>
+    <label asp-for="FechaNacimiento"></label>
+    <input asp-for="FechaNacimiento" type="date" class="form-control" />
+    <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.PorcentajeBeca)
-        @Html.TextBoxFor(m => m.PorcentajeBeca, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.PorcentajeBeca)
-    </div>
+    <label asp-for="Genero"></label>
+    <select asp-for="Genero" class="form-control">
+        <option value="">Seleccione</option>
+        <option>Masculino</option>
+        <option>Femenino</option>
+    </select>
 
-    <button type="submit" class="btn btn-primary">Guardar</button>
+    <label asp-for="Turno"></label>
+    <select asp-for="Turno" class="form-control">
+        <option value="">Seleccione</option>
+        <option>Mañana</option>
+        <option>Tarde</option>
+        <option>Noche</option>
+    </select>
+
+    <label asp-for="EstaBecado"></label>
+    <input asp-for="EstaBecado" type="checkbox" />
+
+    <label asp-for="PorcentajeBeca"></label>
+    <input asp-for="PorcentajeBeca" class="form-control" />
+    <span asp-validation-for="PorcentajeBeca" class="text-danger"></span>
+
+    <button type="submit" class="btn btn-primary mt-3">Registrar</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

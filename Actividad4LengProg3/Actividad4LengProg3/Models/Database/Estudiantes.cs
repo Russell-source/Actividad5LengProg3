@@ -1,14 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Actividad4LengProg3.Models.Database
 {
     public class Estudiantes
     {
+        [Key]
+        public int Id { get; set; } 
+
         [Required]
         [StringLength(100)]
-        [Key]
         public string NombreCompleto { get; set; }
 
         [Required]
@@ -41,15 +41,11 @@ namespace Actividad4LengProg3.Models.Database
         public DateTime FechaNacimiento { get; set; }
 
         public string Genero { get; set; }
-
         public string Turno { get; set; }
 
         public bool EstaBecado { get; set; }
 
         [Range(0, 100)]
         public int? PorcentajeBeca { get; set; }
-
-        
-
     }
 }
